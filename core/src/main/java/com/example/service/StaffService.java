@@ -18,5 +18,10 @@ public interface StaffService {
      */
     List<Staff> getOneByName(String firstName, String lastName);
 
+    /**
+     * findAll
+     *
+     * @return
+     */
     List<Staff> findAll();
 }
