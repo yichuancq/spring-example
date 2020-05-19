@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-//@EnableAspectJAutoProxy
 @Slf4j
 public class StaffServiceImpl implements StaffService {
     /**
