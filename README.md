@@ -37,6 +37,41 @@ ctx id:org.springframework.context.support.ClassPathXmlApplicationContext@601d9f
 City(cityId=1, city=重庆沙坪坝, countryId=null, lastUpdate=2020-05-19T22:28:00.349)
 
 ```
+
+通过注解方式实现IOC
+
+```java
+@Configuration
+public class CityConfiguration {
+    /**
+     * 使用@Bean 注解表明myBean需要交给Spring进行管理
+     * 未指定bean 的名称，默认采用的是 "方法名" + "首字母小写"的配置方式
+     *
+     * @return
+     */
+    @Bean
+    public City cityBean() {
+        return new City();
+    }
+}
+
+```
+
+ 测试调用获取bean对象
+```java
+
+    @Test
+    public void testBean() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(CityConfiguration.class);
+        City city = (City) context.getBean("cityBean");
+        city.setCityId(1);
+        city.setLastUpdate(LocalDateTime.now());
+        city.setCity("重庆沙坪坝");
+        System.out.println(city.toString());
+    }
+```
+
+
 - AOP
   切面监控，可以监控任何文件，目前普遍用于日志。
   

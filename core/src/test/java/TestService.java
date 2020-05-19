@@ -25,4 +25,5 @@ public class TestService {
     public void testComponent() {
         myComponent.method1();
     }
+
 }
